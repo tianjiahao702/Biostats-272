@@ -1,0 +1,94 @@
+---
+title: "hw3"
+author: "Jiahao Tian"
+date: "2023-02-10"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ribd)
+```
+
+
+# Chapter 5
+
+# Question 1
+
+
+- Because condensed identity coeﬃcients all pertain to the pair i and j Thus, in the absence of inbreeding, all nonzero condensed identity coeﬃcients can be expressed in terms of ordinary kinship coeﬃcients.
+
+- Also, because individual i and j are non-inbred relatives so $\Delta_1$ to $\Delta_6$ are equal to 0. And $\Delta_7, \Delta_8, and\;\Delta_9$ are the probabilities of interests for relative pairs in outbred, which indicated $\Delta_7+\Delta_8+\Delta_9=1$.
+
+# part 1:
+
+- Since $\Delta_7$ can be characterized as the probability that two individuals share IBD alleles. $\Delta_7$ is also called the 'coefficient of fraternity'. So $\Delta_7$ can be represented as the Global kinship coefficients from their parents' allele pair $\Phi_{km}*\Phi_{ln}$ plus the other way around $\Phi_{kn}*\Phi_{lm}$. Then we get:
+
+
+$$\Delta_7=\Phi_{km}*\Phi_{ln}+\Phi_{kn}*\Phi_{lm}$$
+
+
+# part 2:
+
+
+- As mentioned above because individual i and j are non-inbred relatives so $\Delta_1$ to $\Delta_6$ are equal to 0. so the relation:
+
+$$\begin{aligned}
+\Phi_{ij} & = \Delta_1 + {{1}\over 2}(\Delta_3+\Delta_5+\Delta_7)+{{1}\over 4}\Delta_8,\;\;and\;\Delta_1 \sim \Delta_6 =0 \\
+& = {{1} \over 2}\Delta_7 + {{1}\over 4} \Delta_8\\
+{{1}\over 4}\Delta_8 &= \Phi_{ij}- {{1}\over 2}\Delta_7\\
+\Delta_8 &= 4\Phi_{ij} - 2\Delta_7\\
+\end{aligned}$$
+
+
+# part 3:
+
+
+- As mentioned above, as $\Delta_7, \Delta_8, and\;\Delta_9$ are the probabilities of interests for relative pairs in outbred, which indicated $\Delta_7+\Delta_8+\Delta_9=1$, the relation:
+
+$$\Delta_9=1-\Delta_7-\Delta_8$$
+
+# Quesion 2
+
+
+```{r}
+x = fullSibMating(1)
+plot(x, hatched = 5:6)
+```
+
+$$\begin{aligned}
+\Delta_1 & = {{1}\over 2}({{1}\over 2})^{3} = {{1}\over 16}, \;which\;parents\;only\;shared\;one\;allel\;by\;descent={{1}\over 2}\\
+\Delta_2 & = {{1}\over 2}({{1}\over 2})^{3} = {{1}\over 32}, \;which\;parents\;shared\;two\;allels\;by\;descent={{1}\over 4}\\
+\;\;\\
+&For \;\Delta_3 \sim \Delta_6, \;which\;needs\;parents\;to\;share\;one\;allel \\
+\Delta_3 & = {{1}\over 2} *2* ({{1}\over 2})^{3} = {{1}\over 8} \\
+\Delta_4 & = {{1}\over 2} *{{1}\over 2} *  ({{1}\over 2})^{3} = {{1}\over 32}\\
+\Delta_5 & = {{1}\over 2} *2* ({{1}\over 2})^{3} = {{1}\over 8} \\
+\Delta_6 & = {{1}\over 2} *{{1}\over 2} *  ({{1}\over 2})^{3} = {{1}\over 32}\\
+\;\;\\
+& From\;textbook\;which\;proved:\\
+\Delta_8 & = 4*\psi_8 = {{5}\over 16}\\
+\;\;\\
+&Plug\;above\;resultes\;into\;the\;equation:\\
+\Phi_{ij} & = \Delta_1 + {{1}\over 2}(\Delta_3+\Delta_5+\Delta_7)+{{1}\over 4}\Delta_8 \\
+& = {{1}\over 16} +{{1}\over 2}({{1}\over 8}+{{1}\over 8}+\Delta_7)+{{1}\over 4}({{5}\over 16})\\
+\Delta_7 & = {{7}\over 32}\\
+\;\;\\
+& Because\;\Delta_1 \sim \Delta_9\;sums\;up\;to\;1:\\
+\Delta_9 & = 1-\Delta_8-\Delta_7-\Delta_6-\Delta_5-\Delta_4-\Delta_3-\Delta_2-\Delta_1\\
+& = 1 - {{5}\over 16} - {{7}\over 32} - {{1}\over 32}-{{1}\over 8}-{{1}\over 32}-{{1}\over 8}-{{1}\over 32}-{{1}\over 16}\\
+& = {{1}\over 16}
+\end{aligned}$$
+
+
+
+- let's check the answers
+
+```{r}
+delta = identityCoefs(x, ids = 5:6)
+tibble::tibble(delta)
+```
+
+- Worked with Peter Yeh.
+
+
