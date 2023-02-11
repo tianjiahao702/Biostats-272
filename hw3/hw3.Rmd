@@ -48,7 +48,45 @@ $$\begin{aligned}
 
 $$\Delta_9=1-\Delta_7-\Delta_8$$
 
-# Quesion 2
+
+# Question 2
+
+- From the question we knew that:
+
+$$\begin{aligned}  
+1 &= \Delta_7+\Delta_8+\Delta_9\\
+\;\\
+\Phi_{ij} & = {{1} \over 2}\Delta_7 + {{1}\over 4} \Delta_8\\
+& = {{1}\over 4} \Phi_{km} +{{1}\over4}\phi_{kn}+{{1}\over 4}\Phi_{lm}+{{1}\over 4}\Phi_{ln}\\
+\;\\
+\Delta_7 &= \Phi_{km}*\Phi_{ln}+\Phi_{kn}*\Phi_{lm}\\
+\end{aligned}$$
+
+- Prove by $(a+b)^2 \geq 4ab$:
+
+$$\begin{aligned}
+(4\Phi_{ij})^2 & = (\underbrace{\Phi_{km}+ \Phi_{kn}}+ \underbrace{\Phi_{lm}+ \Phi_{ln}})^2\\
+& \;\;\;\;\; \;\;\;\;\;\;\;\;\;a\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\ b\\
+& \geq 4(\Phi_{km}+ \Phi_{kn})(\Phi_{lm}+ \Phi_{ln})\\
+& \geq 4(\Phi_{km} \Phi_{kn}+\Phi_{lm}\Phi_{ln})\\
+& \geq 4\Delta_7\\
+\;\;\\
+\Delta_8 &= 4\Phi_{ij} - 2\Delta_7\\
+& \leq 4\Phi_{ij}\\
+{\Delta_8}^2 & \ge 4\Delta_7\\
+\;\;\\
+&Due\;to \;noninbred \;relatives:\\
+\Delta_9 & \leq 1\\
+\;\;\\
+& In \;the\; end\; we\; got:\\
+ {\Delta_8}^2 & \ge  4\Delta_7 \Delta_9\\
+\end{aligned}$$
+
+
+
+
+
+# Quesion 3
 
 
 ```{r}

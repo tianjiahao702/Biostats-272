@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.5)  9 FEB 2023 17:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.5)  10 FEB 2023 20:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -432,32 +432,32 @@ Package amsmath Warning: Foreign command \over;
 [1
 
 {/Users/jiahaotian/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 182.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 224.
 (/Users/jiahaotian/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-<hw3_files/figure-latex/unnamed-chunk-1-1.pdf, id=48, 441.65pt x 295.1025pt>
+) [2]
+<hw3_files/figure-latex/unnamed-chunk-1-1.pdf, id=59, 441.65pt x 295.1025pt>
 File: hw3_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 <use hw3_files/figure-latex/unnamed-chunk-1-1.pdf>
-Package pdftex.def Info: hw3_files/figure-latex/unnamed-chunk-1-1.pdf  used on input line 188.
+Package pdftex.def Info: hw3_files/figure-latex/unnamed-chunk-1-1.pdf  used on input line 230.
 (pdftex.def)             Requested size: 441.65564pt x 295.10626pt.
-[2 <./hw3_files/figure-latex/unnamed-chunk-1-1.pdf>] [3] [4] (./hw3.aux)
+[3 <./hw3_files/figure-latex/unnamed-chunk-1-1.pdf>] [4] [5] (./hw3.aux)
 Package rerunfilecheck Info: File `hw3.out' has not changed.
-(rerunfilecheck)             Checksum: EC044DD748005F4A51667DA602F60466;527.
+(rerunfilecheck)             Checksum: 2DC612E5989B32CBFEFE37791154148F;624.
  ) 
 Here is how much of TeX's memory you used:
- 11049 strings out of 478024
- 173547 string characters out of 5839363
+ 11054 strings out of 478024
+ 173597 string characters out of 5839363
  1870346 words of memory out of 5000000
- 31008 multiletter control sequences out of 15000+600000
+ 31010 multiletter control sequences out of 15000+600000
  552263 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,8n,76p,308b,493s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on hw3.pdf (4 pages, 184892 bytes).
+ 75i,14n,76p,308b,493s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/jiahaotian/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on hw3.pdf (5 pages, 191082 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 140 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
+ 62 words of extra memory for PDF output out of 10000 (max. 10000000)
 
