@@ -14,6 +14,22 @@ library(xtable)
 
 # Chapter 7
 
+# Question 1
+
+$$\begin{aligned}
+We\;knew\;that\;\theta & = {{1}\over 2}(1-e^{-2d})\\
+Assume\;genetic\;distances\;between\;&loci\;1\;and\;loci\;2\;is\;d_{12}\\
+between\;&loci\;2\;and\;loci\;3\;is\;d_{23}\\
+between\;&loci\;1\;and\;loci\;3\;is\;d_{13}\\
+\;\;\\
+1-2\theta_{13} & = 1-2 \cdot{{1}\over 2}(1-e^{-2d_{13}})\\
+& = e^{-2d_{13}}\\
+& = e^{-2d_{12}-2d_{23}}\\
+& =[1-2 \cdot{{1}\over 2}(1-e^{-2d_{12}})][1-2 \cdot{{1}\over 2}(1-e^{-2d_{23}})]\\
+& = (1-2\theta_{12})(1-2\theta_{23})\\
+& = \Pi_{k=1}^2(1-2\theta_{k,\;k+1})\\
+\end{aligned}$$
+
 
 # Qestion 2
 
