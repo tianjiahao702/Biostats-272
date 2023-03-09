@@ -1,0 +1,385 @@
+---
+title: "hw5"
+author: "Jiahao Tian"
+date: "2023-03-07"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Question 1
+
+- From the book we knew that:
+
+$$\begin{aligned}
+\Omega & = \sum_{k=1}^r \sigma^2_k \Gamma_k\\
+\end{aligned}$$
+
+- where the variance components $\sigma_k^2$ are nonnegative and the matrices $\Gamma_k$ are known covariance matrices.
+
+
+$$\begin{aligned}
+L(\gamma) & = {-{m}\over 2}ln2\pi-{{1}\over 2}lndet\Omega-{{1}\over 2}(y - A\mu)^{t}\Omega^{-1}(y-A\mu)\\
+\end{aligned}$$
+
+- In the multivariate normal loglikelihood, $det \Omega$ denotes the determinant of $\Omega$, and $\gamma = (\mu_1 , . . . , \mu_p , \sigma_1^2 , . . . ,\sigma_r^2)^t$ denotes the parameters collected into a column vector. Because we assume $\Gamma_r = I$, $\Omega$ is nonsingular whenever $\sigma_r^2 > 0$.
+
+
+
+
+
+- Show: $\sum_{i=1}^s m_i = \sum_{i=1}^s (Y^i - A_i \hat\mu)^t \cdot \hat\Omega^{-1}_i \cdot (Y^i - A_i \hat\mu)$.
+
+
+- Proof:
+
+
+
+- From the hint we knew that:
+
+$$\begin{aligned}
+\sum_{k=1}^r \hat \sigma_k^2{{d}\over d\sigma_k^2}L(\hat \gamma) = 0
+\end{aligned}$$
+
+
+- plug in the loglikelihood.
+
+$$\begin{aligned}
+{{d}\over d\sigma_k^2}L( \gamma) & = -{{1}\over 2}{{d}\over d\sigma_k^2}lndet\Omega-{{1}\over 2}(y - A\mu)^{t}{{d}\over d\sigma_k^2}\Omega^{-1}(y-A\mu)\\
+\;\;\\
+\hline
+From\;&the\;book,\;one\;of\;the\;property\;is\;that:\\
+{{d}\over d\theta}lndetB & = \sum_{ij}({{d}\over d b_{ij}}lndetB){{d}\over d\theta} b_{ij}\\
+& = \sum_{ij} {{B_{ij}}\over detB}{{d}\over d\theta}b_{ij}\\
+& = tr(B^{-1}{{d}\over d\theta}B)\\
+\hline
+\;\;\\
+& = -{{1}\over 2}tr(\Omega^{-1}\Gamma_k)+{{1}\over 2}(y - A\mu)^t\Omega^{-1}\Gamma_k \Omega^{-1}(y - A\mu)\\
+\end{aligned}$$
+
+
+- Now consider the whole k dataset:
+
+$$\begin{aligned}
+\sum_{k=1}^r \hat \sigma_k^2{{d}\over d\sigma_k^2}L( \gamma) & = -{{1}\over 2}\sum_{k=1}^r \hat \sigma_k^2\cdot tr(\Omega^{-1}\Gamma_k)+{{1}\over 2} \sum_{k=1}^r \hat \sigma_k^2 \cdot (y - A\mu)^t\Omega^{-1}\Gamma_k \Omega^{-1}(y - A\mu)\\
+& = -{{1}\over 2} tr \sum_{k=1}^r \bigg ( \hat \sigma_k^2\cdot \Omega^{-1}\Gamma_k \bigg) + {{1}\over 2} \sum_{k=1}^r \hat \sigma_k^2 \cdot \Omega^{-1}\Gamma_k \cdot \bigg [(y - A\mu)^t \Omega^{-1}(y - A\mu) \bigg ]\\
+& = -{{1}\over 2} tr(I) + {{1}\over 2} \bigg [(y - A\mu)^t \Omega^{-1}(y - A\mu) \bigg ]\\
+& = -{{1}\over 2} m+ {{1}\over 2} \bigg [(y - A\mu)^t \Omega^{-1}(y - A\mu) \bigg ]\\
+& = 0\\
+\;\;\\
+So\;we\;get:\\
+m & = (y - A\mu)^t \Omega^{-1}(y - A\mu)\\
+\end{aligned}$$
+
+
+- At the end, the ith of s pedigrees evaluated at the maximum likelihood estimates is:
+
+
+$$\begin{aligned}
+\sum_{i=1}^s m_i & = \sum_{i=1}^s (Y^i - A_i \hat\mu)^t \cdot \hat\Omega^{-1}_i \cdot (Y^i - A_i \hat\mu)\\
+\end{aligned}$$
+
+
+
+
+
+
+
+# Question 8
+
+
+# a)
+
+$$\begin{aligned}
+(cA) \otimes B & = \bigg(c \begin{pmatrix} 
+                   a_{11} &  \ldots &  a_{1n}\\ 
+                   \vdots & & \vdots \\
+                   a_{m1} &  \ldots &  a_{mn}\\
+                   \end{pmatrix} \bigg) \otimes B
+                   = \begin{pmatrix} 
+                   ca_{11} &  \ldots &  ca_{1n}\\ 
+                   \vdots & & \vdots \\
+                   ca_{m1} &  \ldots &  ca_{mn}\\
+                   \end{pmatrix} \otimes B \\
+                   \;\;\\
+                & = \begin{pmatrix} 
+                   ca_{11}B &  \ldots &  ca_{1n}B\\ 
+                   \vdots & & \vdots \\
+                   ca_{m1}B &  \ldots &  ca_{mn}B\\
+                   \end{pmatrix} 
+                   = c \begin{pmatrix} 
+                   a_{11}B &  \ldots &  a_{1n}B\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}B &  \ldots &  a_{mn}B\\
+                   \end{pmatrix}
+                   =c(A\otimes B)\\
+                   \;\;\\
+                & = \begin{pmatrix} 
+                   ca_{11}B &  \ldots &  ca_{1n}B\\ 
+                   \vdots & & \vdots \\
+                   ca_{m1}B &  \ldots &  ca_{mn}B\\
+                   \end{pmatrix} 
+                   = \begin{pmatrix} 
+                   a_{11}cB &  \ldots &  a_{1n}cB\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}cB &  \ldots &  a_{mn}cB\\
+                   \end{pmatrix}
+                   = A \otimes (cB)\\
+\end{aligned}$$
+
+
+# b)
+
+
+$$\begin{aligned}
+(A \otimes B)^T & = {\begin{pmatrix} 
+                   a_{11}B &  \ldots &  a_{1n}B\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}B &  \ldots &  a_{mn}B\\
+                   \end{pmatrix}}^T
+                   = \begin{pmatrix} 
+                   a_{11}B^T &  \ldots &  a_{1n}B^T\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}B^T &  \ldots &  a_{mn}B^T\\
+                   \end{pmatrix}
+                   = A^T \otimes B^T\\
+\end{aligned}$$
+
+
+
+# c)
+
+$$\begin{aligned}
+(A + B) \otimes C & = \bigg(\begin{pmatrix} 
+                   a_{11} &  \ldots &  a_{1n}\\ 
+                   \vdots & & \vdots \\
+                   a_{m1} &  \ldots &  a_{mn}\\
+                   \end{pmatrix} +
+                   \begin{pmatrix} 
+                   b_{11} &  \ldots &  b_{1n}\\ 
+                   \vdots & & \vdots \\
+                   b_{m1} &  \ldots &  b_{mn}\\
+                   \end{pmatrix}\bigg) \otimes C\\
+                   \;\;\\
+                  & = \begin{pmatrix} 
+                   a_{11}+b_{11} &  \ldots &  a_{1n}+b_{1n}\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}+b_{m1} &  \ldots &  a_{mn}+b_{mn}\\
+                   \end{pmatrix} \otimes C\\
+                   \;\;\\
+                  & = \begin{pmatrix} 
+                   (a_{11}+b_{11})C &  \ldots &  (a_{1n}+b_{1n})C\\ 
+                   \vdots & & \vdots \\
+                   (a_{m1}+b_{m1})C &  \ldots &  (a_{mn}+b_{mn})C\\
+                   \end{pmatrix}\\
+                   \;\;\\
+                  & = \begin{pmatrix} 
+                   a_{11}C+b_{11}C &  \ldots &  a_{1n}C+b_{1n}C\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}C+b_{m1}C &  \ldots &  a_{mn}C+b_{mn}C\\
+                   \end{pmatrix}\\
+                   \;\;\\
+                  & = \begin{pmatrix} 
+                   a_{11}C &  \ldots &  a_{1n}C\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}C &  \ldots &  a_{mn}C\\
+                   \end{pmatrix} +
+                   \begin{pmatrix} 
+                   b_{11}C &  \ldots &  b_{1n}C\\ 
+                   \vdots & & \vdots \\
+                   b_{m1}C &  \ldots &  b_{mn}C\\
+                   \end{pmatrix} \\
+                   \;\;\\
+                  & = (A\otimes C)(B \otimes C)\\
+\end{aligned}$$
+
+
+
+# d)
+
+$$\begin{aligned}
+A \otimes (B+C) & = \begin{pmatrix} 
+                   a_{11}(B+C) &  \ldots &  a_{1n}(B+C)\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}(B+C) &  \ldots &  a_{mn}(B+C)\\
+                   \;\;\\
+                   \end{pmatrix}\\
+                & = \begin{pmatrix} 
+                   a_{11}B+a_{11}C &  \ldots &  a_{1n}B+a_{1n}C\\ 
+                   \vdots & & \vdots \\
+                   a_{m1B}+a_{m1}C &  \ldots &  a_{mn}B+a_{mn}C\\
+                   \end{pmatrix}\\
+                   \;\;\\
+                & = \begin{pmatrix} 
+                   a_{11}B &  \ldots &  a_{1n}B\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}B &  \ldots &  a_{mn}B\\
+                   \end{pmatrix} +
+                   \begin{pmatrix} 
+                   a_{11}C &  \ldots &  a_{1n}C\\ 
+                   \vdots & & \vdots \\
+                   a_{m1}C &  \ldots &  a_{mn}C\\
+                   \end{pmatrix} \\
+                   \;\;\\
+                & = (A\otimes B)(A \otimes C)\\
+\end{aligned}$$
+
+
+# e)
+
+$$\begin{aligned}
+(A \otimes B) \otimes C & = \begin{pmatrix} 
+                            a_{11}B &  \ldots &  a_{1n}B\\ 
+                            \vdots & & \vdots \\
+                            a_{m1}B &  \ldots &  a_{mn}B\\
+                            \end{pmatrix} \otimes C \\
+                            \;\;\\
+                        & = \begin{pmatrix} 
+                            (a_{11}B)\otimes C &  \ldots &  (a_{1n}B)\otimes C\\ 
+                            \vdots & & \vdots \\
+                            (a_{m1}B)\otimes C &  \ldots &  (a_{mn}B)\otimes C\\
+                            \end{pmatrix} \\
+                            \;\;\\
+                        & = \begin{pmatrix} 
+                            a_{11}(B\otimes C) &  \ldots &  a_{1n}(B\otimes C)\\ 
+                            \vdots & & \vdots \\
+                            a_{m1}(B\otimes C) &  \ldots &  a_{mn}(B\otimes C)\\
+                            \end{pmatrix} \\
+                            \;\;\\
+                        & = A \otimes (B \otimes C)\\
+\end{aligned}$$
+
+
+# f) 
+
+- Let $A \in M_{m,n}\;B\in M_{p,q}\; C \in M_{n,m}\;and\; D \in M_{q,r}$ Then,
+
+$$\begin{aligned}
+(A \otimes B)(C \otimes D) & = (AC) \otimes (BD)
+\end{aligned}$$
+
+- Proof:
+
+$$\begin{aligned}
+(A \otimes B)(C \otimes D) & = \begin{pmatrix} 
+                               a_{11}B &  \ldots &  a_{1n}B\\ 
+                               \vdots & & \vdots \\
+                               a_{m1}B &  \ldots &  a_{mn}B\\
+                               \end{pmatrix}
+                               \begin{pmatrix} 
+                               c_{11}D &  \ldots &  c_{1m}D\\ 
+                               \vdots & & \vdots \\
+                               c_{n1}D &  \ldots &  c_{nm}D\\
+                               \end{pmatrix} \\
+                               \;\;\\
+                            & = \begin{pmatrix} 
+                                (\sum_{n=1}^N a_{1n}c_{n1})BD &  \ldots &  (\sum_{n=1}^N a_{1n}c_{nm})BD\\ 
+                                \vdots & & \vdots \\
+                                (\sum_{n=1}^N a_{mn}c_{n1})BD &  \ldots &  (\sum_{n=1}^N a_{mn}c_{nm})BD\\
+                                \end{pmatrix} \\  
+                                \;\;\\
+                            & = \begin{pmatrix} 
+                                (ac)_{11}BD &  \ldots &  (ac)_{1m}BD\\ 
+                                \vdots & & \vdots \\
+                                (ac)_{m1}BD &  \ldots &  (ac)_{mm}BD\\
+                                \end{pmatrix} \\ 
+                                \;\;\\
+                            & = (AC) \otimes (BD)\\
+\end{aligned}$$
+
+
+- we have used the fact that the multiplication of two block matrices can be carried out as if their blocks were scalars; and we also have used the definition of matrix multiplication to deduce that $(ac)_{mm}=\sum_{n=1}^N a_{mn}c_{nm})$.
+
+
+# g)
+
+- If $A \in M_{m}\;B\in M_{n}$ are nonsingular, then $A \otimes B$ is also nonsingular with:
+
+$$\begin{aligned}
+(A \otimes B)^{-1} & = A^{-1} \otimes B^{-1}
+\end{aligned}$$
+
+- Proof: The following results follows part f.
+
+$$\begin{aligned}
+(A \otimes B)(A^{-1} \otimes B^{-1}) & = (AA^{-1}) \otimes (BB^{-1}) = I \otimes I = I\\
+(A^{-1} \otimes B^{-1})(A \otimes B) & = (A^{-1}A) \otimes (B^{-1}B) = I \otimes I = I\\
+\end{aligned}$$
+
+- This implies that $A^{-1} \otimes B^{-1}$ is the unique inverse of $A \otimes B$ under conventional matrix
+multiplication. Therefore, $A \otimes B$ is nonsingular. 
+
+
+# h)
+
+- Proof: The following results follows part f.
+
+- consider $Ar = \lambda r \;and\; Bs = \mu s \;for\; r,s \ne 0$.
+
+$$\begin{aligned}
+(A \otimes B)(r \otimes s) & = (Ar)\otimes (Bs) = (\lambda r) \otimes (\mu s) = \lambda \mu (r\otimes s)
+\end{aligned}$$
+
+- Above shows that $\lambda, \mu$ is an eigenvalue of $A \otimes B$ with corresponding algebraic multiplicity $r,s$.
+
+- By the triangularization theorem, consider $U \in M_n$ and $V \in M_m$ such that $U^{-1}AU = \Delta_A$ and $V^{-1}BV = \Delta_B$ where $\Delta_A$ and $\Delta_B$ are upper triangular matrices. By part f:
+
+$$\begin{aligned}
+(U \otimes V)^{-1}(A \otimes B)(U \otimes V) & = (U^{-1}AU) \otimes (V^{-1}BV) = \Delta_A \otimes \Delta_B\\
+\end{aligned}$$
+
+
+- From above, it follows that $\Delta_A \otimes \Delta_B$ is an upper triangular matrix that is similar to $A \otimes B$. The eigenValues of A, B, and $A \otimes B$ are the main diagonal entries of the upper triangular matrices to which they are similar $(\Delta_A, \Delta_B \;and\; \Delta_A \otimes \Delta_B)$. Since $\Delta_A \;and\; \Delta_B$ are square matrices, it follows from the definition of the Kronecker product that the entries of the main diagonal of $\Delta_A \otimes \Delta_B$ are the pairwise products of the entries on the main diagonals of $\Delta_A \;and\; \Delta_B$ Therefore, the eigenvalues of $\Delta_A \otimes \Delta_B$ are also the  pairwise products of the eigenValues of A and B. Since the eigenvalues of $B \otimes A$ are the pairwise products of the eigenvalues of B and A, they will be the same as the eigenvalues of  $\Delta_A \otimes \Delta_B$. 
+
+
+# i)
+
+- The trace is the sum of the diagonal entries of a matrix. As a consequence, can also be computed as the sum of the eigenvalues of the matrix. If the eigenvalues of A are $\lambda$, and the eigenvalues of B are $\mu$.
+
+- Consider $A \in M_{mm}$
+
+$$\begin{aligned}
+tr(A \otimes B) & = tr \bigg( \begin{pmatrix} 
+                               a_{11}B &  \ldots &  a_{1m}B\\ 
+                               \vdots & & \vdots \\
+                               a_{m1}B &  \ldots &  a_{mm}B\\
+                               \end{pmatrix} \bigg)\\
+                               \;\\
+                           & = \sum_{m = 1}^M tr(a_{mm}B)\\
+                           \;\\
+                           & = \sum_{m = 1}^M a_{mm} \cdot tr(B)\\
+                           \;\\
+                           & = tr(A) \cdot tr(B)\\
+\end{aligned}$$
+
+
+# j)
+
+-  Since the detenninant of a matrix is the product of the eigenvalues of the matrix, $det(A \otimes B) = \Pi_{i=1}^{nm} \lambda_i$, where $\lambda_i$ are the eigenvalues of $A \otimes B$. Let $\lambda_i = \alpha_j \cdot \beta_k$, where $\alpha_j$ is an eigenvalue of A and $\beta_k$ is an eigenvalue of B.
+
+- Proof:
+
+$$\begin{aligned}
+det(A \otimes B) & = \Pi_{i=1}^{nm} \lambda_i = \Pi_{j=1}^{m}\Pi_{k=1}^{n}(\alpha_j \beta_k) \\
+                 \;\\
+                 & = (\Pi_{j=1}^{m} {\alpha_j}^n)(\Pi_{k=1}^{n} {\beta_k}^m) \\
+                 \;\\
+                 & = det(A)^n det(B)^m\\ 
+\end{aligned}$$
+
+
+
+
+- Worked with Sherry Zhang.
+
+
+
+
+
+
+
+
+
